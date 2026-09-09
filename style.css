@@ -175,16 +175,58 @@ section {
 }
 
 .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
     font-size: 1.3rem;
     font-weight: 800;
-    color: var(--text-white);
     letter-spacing: -0.02em;
-    position: relative;
+    color: var(--text-white);
+    text-decoration: none;
 }
 
-.nav-logo span {
-    color: var(--neon-cyan);
-    text-shadow: var(--glow-cyan);
+/* Dollar sign gradient */
+.nav-logo .logo-sign{
+    display: inline-block;
+    background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: var(--glow-blue);
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+/* A.G. stays white*/
+.nav-logo .logo-name{
+    color: var(--text-white);
+}
+
+/*Pulse animation*/
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.25);
+        opacity: 0.5;
+    }
+}
+
+.nav-logo .pulse {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.nav-logo:hover .logo-sign{
+    animation-play-state: paused;
+    transform: scale(1.2);
+}
+
+.nav-logo:hover .logo-name{
+    color: var(--neon-purple);
+    transition: color 0.3s ease;
 }
 
 .nav-links {
